@@ -1,0 +1,49 @@
+.banner-container {
+  display: flex;
+}
+.banner-text-block {
+  width: 30%;
+  color: var(--text-white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--card-icon);
+  font: normal normal 600 2em Source Serif Pro;
+}
+
+.banner-text-block h2 {
+  position: relative;
+}
+.banner-text-block h2::after {
+  content: "";
+  position: absolute;
+  width: 102px;
+  height: 8px;
+  background-color: var(--bg-blue);
+  bottom: -30px;
+  right: 60px;
+}
+.banner-image-block {
+  width: 70%;
+  padding: 1rem 0;
+}
+.banner-image-block .banner-image {
+  width: 100%;
+}
+
+@media (max-width: 750px) {
+  .banner-container {
+      flex-direction: column;
+  }
+  .banner-image-block {
+    width: 100%;
+    padding: 0;
+  }
+  .banner-text-block {
+    width: 90%;
+    position: absolute;
+    left: 5%;
+    top: 25%
+  }
+}

@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>VENIA</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./styles/index.css" />
+    <link rel="stylesheet" href="./styles/navbar.css" />
+    <link rel="stylesheet" href="./styles/banner.css" />
+    <link rel="stylesheet" href="./styles/global-components.css" />
+    <link rel="stylesheet" href="./styles/global-styles.css" />
+    <link rel="stylesheet" href="./styles/category-styles.css" />
+    <link rel="stylesheet" href="./styles/footer.css" />
+    <link
+      rel="icon"
+      href="./assets/nav-header/logo-black.png"
+      type="image/x-icon"
+    />
+    <style>
+      .loading-indicator {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.5em;
+        color: #333;
+      }
+      .category_cards_list_container {
+        margin: 20px 0;
+      }
+      .category_cards_wrapper {
+        border: 1px solid #ccc;
+        padding: 10px;
+        margin: 10px;
+      }
+      .category_cards_list_View_more {
+        cursor: pointer;
+        color: blue;
+        text-decoration: underline;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- NAVIGATION HEADER -->
+    <div class="navigation-container">
+      <div class="navbar">
+        <img
+          src="./assets/icons/menu.png"
+          class="navbar_hamburger_mobile"
+          id="navbar_hamburger_mobile"
+        />
+        <img src="./assets/nav-header/logo-white.png" alt="logo" class="logo" />
+        <nav class="nav_wrapper">
+          <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Women</a></li>
+            <li><a href="#">Men</a></li>
+            <li><a href="#">Accessories</a></li>
+          </ul>
+        </nav>
+        <div class="cart-icon">
+          <span class="item-count">10</span>
+          <img src="./assets/icons/bag.png" />
+        </div>
+      </div>
+
+      <div class="navbar_menu_mobile" id="navbar_menu_mobile">
+        <div class="navbar_menu_mobile_wrapper">
+          <img
+            src="./assets/icons/cancel.png"
+            class="navbar_remove"
+            id="navbar_remove"
+          />
+          <div class="filter_options_wrapper">
+            <div class="filter_options_title">Filters</div>
+            <div class="filter_options_conteiner">
+              <div class="filter_categories_title">Categories</div>
+              <div
+                id="filter_option_container_mobile"
+                class="filter_option_conteiner"
+              ></div>
+            </div>
+          </div>
+          <button
+            class="category_cards_header_results category_cards_header_mobile"
+            id="resultsCount"
+          ></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- BANNER -->
+    <div class="banner-container">
+      <div class="banner-text-block">
+        <h2>Men's<br />Outerwear</h2>
+      </div>
+      <div class="banner-image-block">
+        <img
+          src="./assets/banner/banner-bg.png"
+          alt="BACKGROUND"
+          class="banner-image"
+        />
+      </div>
+    </div>
+
+    <!-- LOADING INDICATOR -->
+    <div class="loading-indicator" id="loadingIndicator">Loading...</div>
+
+    <!-- CATEGORY CONTAINER -->
+    <div class="category_wrapper">
+      <div class="category_sidemenu">
+        <div class="side_menu_breadcrump">
+          <span class="breadcrump-options">Clothing</span>
+          <span class="breadcrump-options breadcrump-seperator"> / </span>
+          <span class="breadcrump-options">Women's</span>
+          <span class="breadcrump-options breadcrump-seperator"> / </span>
+          <span class="breadcrump-options breadcrump-active">Outerwear</span>
+        </div>
+        <div class="filter_options_wrapper">
+          <div class="filter_options_title">Filters</div>
+          <div class="filter_options_conteiner">
+            <div class="filter_categories_title">Categories</div>
+            <div
+              id="filter_option_container"
+              class="filter_option_conteiner"
+            ></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="category_cards_container">
+        <div class="category_cards_header">
+          <div class="category_filter_action_mobile">
+            <p class="category_filter_results">
+              <img src="./assets/icons/filter.png" />Filter Results
+            </p>
+            <p class="category_filter_results">
+              <img src="./assets/icons/sort.png" />Sort Products
+            </p>
+          </div>
+          <b class="category_cards_header_results" id="resultsCount_mobile"
+            >0 Results</b
+          >
+          <div>
+            <input
+              placeholder="Search"
+              class="category_cards_filter"
+              oninput="handleSearch(event)"
+            />
+            <select
+              class="dropdown_options_wrapper"
+              onchange="handleSortChange(event)"
+            >
+              <option value="none">Sort by Price</option>
+              <option value="low-to-high">Low to high</option>
+              <option value="high-to-low">High to low</option>
+            </select>
+          </div>
+
+          <!-- bread crump for moobile view -->
+          <div class="side_menu_breadcrump side_menu_breadcrump_mobile">
+            <span class="breadcrump-options">Clothing</span>
+            <span class="breadcrump-options breadcrump-seperator"> / </span>
+            <span class="breadcrump-options">Women's</span>
+            <span class="breadcrump-options breadcrump-seperator"> / </span>
+            <span class="breadcrump-options breadcrump-active">Outerwear</span>
+          </div>
+        </div>
+
+        <div id="products" class="category_cards_list_container"></div>
+        <div
+          id="category_cards_list_View_more"
+          class="category_cards_list_View_more"
+          onclick="handleViewMore()"
+        >
+          View More
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <div class="footer_links_container">
+        <div class="footer_wrapper">
+          <h3 class="footer_title">Account</h3>
+          <a class="footer_links">Sign In</a>
+          <a class="footer_links">Register</a>
+          <a class="footer_links">Order Status</a>
+        </div>
+        <div class="footer_wrapper">
+          <h3 class="footer_title">About Us</h3>
+          <a class="footer_links">Our Story</a>
+          <a class="footer_links">Careers</a>
+        </div>
+        <div class="footer_wrapper">
+          <h3 class="footer_title">Help</h3>
+          <a class="footer_links">Contact Us</a>
+          <a class="footer_links">Order Status</a>
+          <a class="footer_links">Returns</a>
+        </div>
+        <div class="footer_wrapper">
+          <h3 class="footer_title">Follow Us!</h3>
+          <p class="footer_links footer_links_description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          </p>
+          <div class="footer_social_links_wrapper">
+            <img
+              src="./assets/icons/instagram.png"
+              class="footer_social_links"
+            />
+            <img
+              src="./assets/icons/facebook.png"
+              class="footer_social_links"
+            />
+            <img src="./assets/icons/twitter.png" class="footer_social_links" />
+          </div>
+        </div>
+      </div>
+      <div class="footer_bottom_wrapper">
+        <img src="./assets/nav-header/logo-black.png" class="footer_logo" />
+        <a class="footer_bottom_company"
+          >© Company Name Address Ave, City Name, State ZIP</a
+        >
+        <div class="footer_terms_privacy">
+          <a>Terms Of Use</a>
+          <a>Privacy Policy</a>
+        </div>
+      </div>
+    </div>
+    <!-- FUNC AND ACTIONS STARTS HERE -->
+    <script src="./script/script.js"></script>
+  </body>
+</html>
