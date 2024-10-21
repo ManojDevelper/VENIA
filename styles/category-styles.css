@@ -149,9 +149,9 @@
     width: 4vw;
   }
 }
-@media (max-width: 520px) {
+@media (max-width: 620px) {
   .category_cards_list_container {
-    grid-template-columns: 46vw 46vw;
+    grid-template-columns: 50% 50%;
   }
   .category_card_image_wrapper {
     height: 36vw;
