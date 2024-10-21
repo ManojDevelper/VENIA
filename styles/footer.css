@@ -70,6 +70,7 @@
   }
   .footer_links {
     font-size: 1em;
+    width: fit-content;
   }
   .footer_bottom_wrapper {
     gap: 1em;
