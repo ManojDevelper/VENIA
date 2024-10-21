@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="./styles/global-styles.css" />
     <link rel="stylesheet" href="./styles/category-styles.css" />
     <link rel="stylesheet" href="./styles/footer.css" />
+    <link rel="stylesheet" href="./styles/product-details-container.css" />
     <link
       rel="icon"
       href="./assets/nav-header/logo-black.png"
@@ -67,7 +68,7 @@
     </div>
 
     <!-- BANNER -->
-    <div class="banner-container">
+    <div class="banner-container" id="banner-container">
       <div class="banner-text-block">
         <h2>Men's<br />Outerwear</h2>
       </div>
@@ -84,7 +85,7 @@
     <div class="loading-indicator" id="loadingIndicator">Loading...</div>
 
     <!-- CATEGORY CONTAINER -->
-    <div class="category_wrapper">
+    <div class="category_wrapper" id="category_wrapper">
       <div class="category_sidemenu">
         <div class="side_menu_breadcrump">
           <span class="breadcrump-options">Clothing</span>
@@ -155,6 +156,152 @@
         >
           View More
         </div>
+      </div>
+    </div>
+
+    <!-- PRODUCT DETAIL CONTAINER -->
+    <div class="product_detail_container_wrapper" id="product_detail_container_wrapper">
+      <div class="product_detail_container">
+        <div class="product_detail_image_container">
+          <div class="side_menu_breadcrump product_side_menu_breadcrump_mobile">
+            <span class="breadcrump-options">Clothing</span>
+            <span class="breadcrump-options breadcrump-seperator"> / </span>
+            <span class="breadcrump-options" id="breadcrump-options-category">Women's</span>
+            <span class="breadcrump-options breadcrump-seperator"> / </span>
+            <span class="breadcrump-options breadcrump-active">Outerwear</span>
+          </div>
+          <div class="product_detail_image_dimensions">
+            <img
+              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+              class="product_detail_image_classfication"
+              id="product_detail_image_classfication_1"
+            />
+            <img
+              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+              class="product_detail_image_classfication"
+              id="product_detail_image_classfication_2"
+            />
+            <img
+              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+              class="product_detail_image_classfication"
+              id="product_detail_image_classfication_3"
+            />
+            <img
+              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+              class="product_detail_image_classfication"
+              id="product_detail_image_classfication_4"
+            />
+            <img
+              src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+              class="product_detail_image_classfication"
+              id="product_detail_image_classfication_5"
+            />
+          </div>
+          <img
+            src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg"
+            class="product_detail_image_view"
+            id="product_detail_image_view"
+          />
+        </div>
+        <div class="product_detail_image_details_container">
+          <div class="side_menu_breadcrump">
+            <span class="breadcrump-options">Clothing</span>
+            <span class="breadcrump-options breadcrump-seperator"> / </span>
+            <span class="breadcrump-options">Women's</span>
+            <span class="breadcrump-options breadcrump-seperator"> / </span>
+            <span class="breadcrump-options breadcrump-active">Outerwear</span>
+          </div>
+          <h2 class="product_detail_title" id="product_detail_title">
+            Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+          </h2>
+          <span class="product_detail_price" id="product_detail_price"
+            >$ 109.95</span
+          >
+
+          <!-- PRODUCT DETAIL RATING -->
+          <div class="product_detail_rating">
+            <img
+              src="./assets/icons/star_fill.png"
+              class="product_detail_rating_icon"
+            />
+            <img
+              src="./assets/icons/star_fill.png"
+              class="product_detail_rating_icon"
+            />
+            <img
+              src="./assets/icons/star_fill.png"
+              class="product_detail_rating_icon"
+            />
+            <img
+              src="./assets/icons/star_fill.png"
+              class="product_detail_rating_icon"
+            />
+            <img
+              src="./assets/icons/star.png"
+              class="product_detail_rating_icon"
+            />
+          </div>
+          <p class="product_detail_description" id="product_detail_description">
+            Your perfect pack for everyday use and walks in the forest. Stash
+            your laptop (up to 15 inches) in the padded sleeve, your everyday
+          </p>
+
+          <!-- ADD QUANTITY  -->
+          <div class="product_quantity">
+            <span class="product_quantity_title">Quantity</span>
+            <div class="product_quantity_action">
+              <img
+                src="./assets/icons/remove.png"
+                class="product_quantity_action_buttons"
+                id="decrease"
+              />
+              <input
+                class="product_quantity_input"
+                id="product_quantity_input"
+                value="0"
+                readonly
+              />
+              <img
+                src="./assets/icons/add.png"
+                class="product_quantity_action_buttons"
+                id="increase"
+              />
+            </div>
+          </div>
+          <button class="add_to_cart">ADD TO CART</button>
+
+          <!-- LIKE SHARE CONTAINER -->
+          <div class="like_share_container">
+            <p class="save_action_button">
+              <img
+                src="./assets/icons/heart.png"
+                class="save_action_button_icon"
+              />Save
+            </p>
+            <p class="save_action_button">
+              <img
+                src="./assets/icons/share.png"
+                class="save_action_button_icon"
+              />Share
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="product_detail_overview">
+        <h2
+          class="product_detail_title product_detail_title_overview"
+          id="product_detail_title_overview"
+        >
+          Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops
+        </h2>
+        <span class="product_detail_description_label">Description:</span>
+        <p
+          class="product_detail_description product_detail_description_overview"
+          id="product_detail_description_overview"
+        >
+          Your perfect pack for everyday use and walks in the forest. Stash your
+          laptop (up to 15 inches) in the padded sleeve, your everyday
+        </p>
       </div>
     </div>
 

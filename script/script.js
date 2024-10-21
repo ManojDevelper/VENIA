@@ -8,6 +8,7 @@ async function fetchProducts() {
   try {
     const response = await fetch("https://fakestoreapi.com/products");
     const data = await response.json();
+    console.log("data", data);
     productList = data;
     displayProducts();
   } catch (error) {
@@ -55,6 +56,60 @@ function displayProducts() {
   renderProducts(); // Initial render
 }
 
+// on click show product modal
+function handleCardClick(index) {
+  console.log("index", index);
+
+  const getSelectedItem = productList?.find((item, i) => i === index);
+  console.log("getSelectedItem", getSelectedItem);
+  // Populate modal with product details
+  document.getElementById("product_detail_title").innerText =
+    getSelectedItem.title;
+  document.getElementById("product_detail_title_overview").innerText =
+    getSelectedItem.title;
+  document.getElementById("product_detail_image_view").src =
+    getSelectedItem.image;
+  document.getElementById("product_detail_image_classfication_1").src =
+    getSelectedItem.image;
+  document.getElementById("product_detail_image_classfication_2").src =
+    getSelectedItem.image;
+  document.getElementById("product_detail_image_classfication_3").src =
+    getSelectedItem.image;
+  document.getElementById("product_detail_image_classfication_4").src =
+    getSelectedItem.image;
+  document.getElementById("product_detail_image_classfication_5").src =
+    getSelectedItem.image;
+  document.getElementById("product_detail_description").innerText =
+    getSelectedItem.description;
+  document.getElementById("product_detail_description_overview").innerText =
+    getSelectedItem.description;
+  document.getElementById(
+    "product_detail_price"
+  ).innerText = `$${getSelectedItem.price}`;
+
+  // Show modal
+  document.getElementById("banner-container").style = "display: none;";
+  document.getElementById("category_wrapper").style = "display: none;";
+  document.getElementById("product_detail_container_wrapper").style =
+    "display: inherit;";
+
+  // Reset quantity to 1
+  let quantity = 1;
+  updateModalQuantity(quantity);
+
+  // Event listeners for increase/decrease buttons
+  document.getElementById("modal-increase").onclick = () => {
+    quantity++;
+    updateModalQuantity(quantity);
+  };
+
+  document.getElementById("modal-decrease").onclick = () => {
+    if (quantity > 1) quantity--; // Prevent going below 1
+    updateModalQuantity(quantity);
+  };
+}
+
+// Render Products
 function renderProducts() {
   const productsContainer = document.getElementById("products");
   productsContainer.innerHTML = ""; // Clear any existing content
@@ -77,12 +132,11 @@ function renderProducts() {
 
   const productsToShow = filteredProducts.slice(0, viewMoreCount);
 
-  productsToShow.forEach((product) => {
+  productsToShow.forEach((product, index) => {
     const card = document.createElement("div");
     card.classList.add("category_cards_wrapper");
-
     card.innerHTML = `
-          <div class="category_card_image_wrapper">
+          <div class="category_card_image_wrapper" onclick="handleCardClick(${index})">
               <img src="${product.image}" alt="${product.title}" class="category_card_image" />
           </div>
           <div class="category_card_details_wrapper">
@@ -172,6 +226,27 @@ document.getElementById("resultsCount").addEventListener("click", function () {
   card.classList.remove("show");
   card.classList.toggle("hidden");
 });
+
+// Function to increase and decrease count
+let count = 0;
+
+const countInput = document.getElementById("product_quantity_input");
+const increaseButton = document.getElementById("increase");
+const decreaseButton = document.getElementById("decrease");
+
+increaseButton.addEventListener("click", () => {
+  count++;
+  updateCount();
+});
+
+decreaseButton.addEventListener("click", () => {
+  count--;
+  updateCount();
+});
+
+function updateCount() {
+  countInput.value = count;
+}
 
 // Call the function to fetch products when the script loads
 fetchProducts();
