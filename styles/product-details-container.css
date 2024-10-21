@@ -64,7 +64,6 @@
 }
 @media (max-width: 750px) {
   .product_detail_container_wrapper {
-    display: flex;
     width: 100%;
     padding: 2rem 5vw;
     flex-direction: column;
