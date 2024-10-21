@@ -74,6 +74,7 @@
   }
   .footer_bottom_wrapper {
     gap: 1em;
+    padding: 1vw 5vw;
     flex-direction: column-reverse;
   }
   .footer_bottom_company {

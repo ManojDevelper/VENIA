@@ -16,30 +16,6 @@
       href="./assets/nav-header/logo-black.png"
       type="image/x-icon"
     />
-    <style>
-      .loading-indicator {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.5em;
-        color: #333;
-      }
-      .category_cards_list_container {
-        margin: 20px 0;
-      }
-      .category_cards_wrapper {
-        border: 1px solid #ccc;
-        padding: 10px;
-        margin: 10px;
-      }
-      .category_cards_list_View_more {
-        cursor: pointer;
-        color: blue;
-        text-decoration: underline;
-      }
-    </style>
   </head>
   <body>
     <!-- NAVIGATION HEADER -->
@@ -135,7 +111,10 @@
             <p class="category_filter_results">
               <img src="./assets/icons/filter.png" />Filter Results
             </p>
-            <p class="category_filter_results">
+            <p
+              class="category_filter_results"
+              onclick="handleSortMobileChange()"
+            >
               <img src="./assets/icons/sort.png" />Sort Products
             </p>
           </div>

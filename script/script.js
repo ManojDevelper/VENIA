@@ -2,6 +2,7 @@ let productList = [];
 let selectedCategories = [];
 let searchTerm = "";
 let viewMoreCount = 9;
+let sortType = "low-to-high";
 
 async function fetchProducts() {
   try {
@@ -109,6 +110,7 @@ function handleFilterCategory(event) {
   renderProducts(); // Re-render filtered products
 }
 
+// sort func for desktop
 function handleSortChange(event) {
   const sortOption = event.target.value;
 
@@ -116,6 +118,21 @@ function handleSortChange(event) {
     productList.sort((a, b) => a.price - b.price);
   } else if (sortOption === "high-to-low") {
     productList.sort((a, b) => b.price - a.price);
+  }
+
+  renderProducts(); // Re-render products
+}
+
+// Sort func for mobile view
+function handleSortMobileChange() {
+  const sortOption = sortType;
+
+  if (sortOption === "low-to-high") {
+    productList.sort((a, b) => a.price - b.price);
+    sortType = "high-to-low";
+  } else if (sortOption === "high-to-low") {
+    productList.sort((a, b) => b.price - a.price);
+    sortType = "low-to-high";
   }
 
   renderProducts(); // Re-render products
