@@ -96,7 +96,7 @@
   display: none;
 }
 .category_filter_action_mobile {
-    display: none;
+  display: none;
 }
 
 @media (max-width: 750px) {
@@ -142,10 +142,18 @@
     gap: 0.5rem;
     cursor: pointer;
   }
-  .category_filter_results img{
+  .category_filter_results img {
     width: 1rem;
   }
   .add_to_favourite {
     width: 4vw;
+  }
+}
+@media (max-width: 520px) {
+  .category_cards_list_container {
+    grid-template-columns: 46vw 46vw;
+  }
+  .category_card_image_wrapper {
+    height: 36vw;
   }
 }
